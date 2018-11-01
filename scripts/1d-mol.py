@@ -2,7 +2,6 @@
 #1d-mol.py
 #Jeu du plus ou du moins
 #Antoine Nicolleau
-#23 oct 2018
 
 #Importation
 import random
@@ -27,7 +26,7 @@ signal.signal(signal.SIGINT, leaver)
 # Initialisation du nombre random entre 1 et 100 
 # et de la variable qui va contenir la saisie utilisateur
 rdm = random.randint(1,100)
-print (rdm)
+# print (rdm)
 nbuser =input('Saisir un nombre entre 1 et 100 ? ')
 
 # Tant que ma saisie utilisateur est différente de mon nombre rdm,
