@@ -37,6 +37,9 @@ while str(nbuser) != str(rdm):
     if str(nbuser) == 'q':
         endGame()
     
+    elif str(nbuser) is not int :
+        print("Ceci n'est pas un nombre, veuillez réessayer")
+    
     elif int(nbuser) < int(rdm):
         print("C'est plus")
     
