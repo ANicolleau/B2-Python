@@ -15,7 +15,7 @@ def endGame():
     sys.exit(0)
     return
 
-# Fonction pour quitter joliment avec CTRL+C
+# Fonction pour quitter joliement avec CTRL+C
 def leaver (sig, frame):
     print('Tu as fait CTRL+C, la soltuion était ' + str(rdm))
     sys.exit(0)
