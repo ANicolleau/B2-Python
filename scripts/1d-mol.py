@@ -34,9 +34,11 @@ nbuser =input('Saisir un nombre entre 1 et 100 ? ')
 #boucler jusqu'à ce que l'utilisateur trouve le nombre.
 while str(nbuser) != str(rdm):
     
+    # Si le nombre entré est égal à q, cela quitte le jeu
     if str(nbuser) == 'q':
         endGame()
     
+    # Si ce n'est pas un nombre 
     elif str(nbuser) is not int :
         print("Ceci n'est pas un nombre, veuillez réessayer")
     
