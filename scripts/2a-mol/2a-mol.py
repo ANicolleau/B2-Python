@@ -6,37 +6,56 @@
 #Importation
 import random
 import sys
+import time
 
 #Instanciation
 rdm = random.randint(1,100)
-nbuser = sys.stdout
-filetest = '2atest'
+nbuser = -1
+filetest = '2atest.txt'
 welcome = 'Bonjour et bienvenu dans ce jeu du plus ou du moins. Pour commencer le jeu, entrer un nombre'
+plus = 'C\'est plus'
+moins = 'C\'est moins'
+win = 'C\'est gagné, le nombre était bien : '
+rejouer = 'Entrez un nombre entre 1 et 100'
 
-filetmp = open(filetest, "w")
-filetmp.write(welcome)
+
+def write(file,msg):
+        filetmp = open(file, "w")
+        filetmp.write(msg)
+        filetmp.close
+
+def read(file):
+        open(file, "r")
 
 
 
+
+
+write(filetest, welcome)
 
 
 # Tant que ma saisie utilisateur est différente de mon nombre rdm,
 #boucler jusqu'à ce que l'utilisateur trouve le nombre.
     
     # Si ce n'est pas un nombre 
-if str(nbuser) is not int :
-        print("Ceci n'est pas un nombre, veuillez réessayer")
-    
-elif int(nbuser) < int(rdm):
-        print("C'est plus")
-    
-elif int(nbuser) > int(rdm) and int(nbuser) > 0 and int(nbuser) < 100:
-        print("C'est moins")
-    
-elif int(nbuser) < 0 or int(nbuser) > 100: 
-        print("Saisissez un nombre valable entre 1 et 100")
+while int(nbuser) != int(rdm):
+        gamefile = open(filetest, "r")
+        compteur = 0
+        for line in gamefile.readlines():
+                compteur += 1
+                if compteur == 2:
 
+                        if int(nbuser) < int(rdm):
+                                write(filetest,plus)
+                        
+                        elif int(nbuser) > int(rdm) :
+                                write(filetest, moins)
+                        
+                        elif int(nbuser) < 0 or int(nbuser) > 100: 
+                               write(filetest, rejouer)
 
-elif int(nbuser) == int(rdm):
-    print("Bravo tu as gagné ! La solution était bien " + nbuser + ". A Bientôt !")
+                        elif int(nbuser) == int(rdm):
+                                write(filetest, win)
 
+        gamefile.close()
+        time.sleep(2)
