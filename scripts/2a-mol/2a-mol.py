@@ -15,7 +15,7 @@ filetest = '2atest.txt'
 welcome = 'Bonjour et bienvenu dans ce jeu du plus ou du moins. Pour commencer le jeu, entrez un nombre entre 0 et 100 sur la 2e ligne'
 plus = 'C\'est plus'
 moins = 'C\'est moins'
-win = 'C\'est gagné ! '
+win = 'C\'est gagné, le nombre était bien : '
 rejouer = 'Entrez un nombre entre 1 et 100'
 
 
@@ -34,20 +34,23 @@ write(filetest, welcome)
     # Si ce n'est pas un nombre 
 while int(nbuser) != int(rdm):
         gamefile = open(filetest, "r")
-        for line in gamefile.readlines()[1]:
-                
+        compteur = 0
+        for line in gamefile.readlines():
+                compteur += 1
+                if compteur == 2:
+                        nbuser = line
 
-                if int(nbuser) < int(rdm):
-                        write(filetest, plus)
+                        if int(nbuser) < int(rdm):
+                                write(filetest,plus)
                         
-                elif int(nbuser) > int(rdm) :
-                        write(filetest, moins)
+                        elif int(nbuser) > int(rdm) :
+                                write(filetest, moins)
                         
-                elif int(nbuser) < 0 or int(nbuser) > 100: 
-                        write(filetest, rejouer)
+                        elif int(nbuser) < 0 or int(nbuser) > 100: 
+                               write(filetest, rejouer)
 
-                elif int(nbuser) == int(rdm):
-                        write(filetest, win)
+                        elif int(nbuser) == int(rdm):
+                                write(filetest, win)
 
         gamefile.close()
-        time.sleep(2)
+        time.sleep(3)
