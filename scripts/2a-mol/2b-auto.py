@@ -51,7 +51,6 @@ while (success == False):
 
     if indice == "plus":
         low_number = float(guessed_number)
-        print("pute")
 
     elif indice == "moins": 
         high_number = float(guessed_number)
