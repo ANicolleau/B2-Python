@@ -13,10 +13,6 @@ rdm = random.randint(1,100)
 nbuser = -1
 filetest = '2atest.txt'
 welcome = 'Bonjour et bienvenu dans ce jeu du plus ou du moins. Pour commencer le jeu, entrez un nombre entre 0 et 100 sur la 2e ligne'
-plus = 'plus'
-moins = 'moins'
-win = 'gagné ! Le nombre était bien : '
-rejouer = 'Entrez un nombre entre 1 et 100'
 
 
 # fonction qui me permet d'écrire dans les fichiers
@@ -46,15 +42,15 @@ while float(nbuser) != float(rdm):
                         nbuser = line
 
                         if float(nbuser) < float(rdm):
-                                write(filetest, plus)
+                                write(filetest, "plus")
                         
                         elif float(nbuser) > float(rdm) :
-                                write(filetest, moins)
+                                write(filetest, "moins")
                         
                         elif float(nbuser) < 0 or float(nbuser) > 100: 
-                               write(filetest, rejouer)
+                               write(filetest, "Entrez un nombre entre 1 et 100")
 
                         elif float(nbuser) == float(rdm):
-                                write(filetest, win + str(nbuser))
+                                write(filetest, 'gagné ! Le nombre était bien : ' + str(nbuser))
 
         time.sleep(2)
