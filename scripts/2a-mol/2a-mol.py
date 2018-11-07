@@ -13,9 +13,9 @@ rdm = random.randint(1,100)
 nbuser = -1
 filetest = '2atest.txt'
 welcome = 'Bonjour et bienvenu dans ce jeu du plus ou du moins. Pour commencer le jeu, entrez un nombre entre 0 et 100 sur la 2e ligne'
-plus = 'C\'est plus'
-moins = 'C\'est moins'
-win = 'C\'est gagné, le nombre était bien : '
+plus = 'plus'
+moins = 'moins'
+win = 'gagné ! Le nombre était bien : '
 rejouer = 'Entrez un nombre entre 1 et 100'
 
 
@@ -27,30 +27,34 @@ def write(file,msg):
 
 write(filetest, welcome)
 
+print(float(rdm))
+
 
 # Tant que ma saisie utilisateur est différente de mon nombre rdm,
 #boucler jusqu'à ce que l'utilisateur trouve le nombre.
     
     # Si ce n'est pas un nombre 
-while int(nbuser) != int(rdm):
+while float(nbuser) != float(rdm):
         gamefile = open(filetest, "r")
         compteur = 0
+
+# Pour réussir à lire la ligne 2
         for line in gamefile.readlines():
                 compteur += 1
                 if compteur == 2:
+                        gamefile.close()
                         nbuser = line
 
-                        if int(nbuser) < int(rdm):
-                                write(filetest,plus)
+                        if float(nbuser) < float(rdm):
+                                write(filetest, plus)
                         
-                        elif int(nbuser) > int(rdm) :
+                        elif float(nbuser) > float(rdm) :
                                 write(filetest, moins)
                         
-                        elif int(nbuser) < 0 or int(nbuser) > 100: 
+                        elif float(nbuser) < 0 or float(nbuser) > 100: 
                                write(filetest, rejouer)
 
-                        elif int(nbuser) == int(rdm):
-                                write(filetest, win)
+                        elif float(nbuser) == float(rdm):
+                                write(filetest, win + str(nbuser))
 
-        gamefile.close()
-        time.sleep(3)
+        time.sleep(2)
