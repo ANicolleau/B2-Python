@@ -9,10 +9,10 @@ import sys
 import time
 
 #Instanciation
-rdm = random.randint(1,100)
+rdm = random.randint(0,100)
 nbuser = -1
 filetest = '2atest.txt'
-welcome = 'Bonjour et bienvenu dans ce jeu du plus ou du moins. Pour commencer le jeu, entrez un nombre entre 0 et 100 sur la 2e ligne'
+welcome = 'Bonjour et bienvenu dans ce jeu du Plus ou du Moins. Pour commencer le jeu, entrez un nombre entre 0 et 100 sur la 2e ligne'
 
 
 # fonction qui me permet d'écrire dans les fichiers
@@ -23,7 +23,7 @@ def write(file,msg):
 
 write(filetest, welcome)
 
-print(float(rdm))
+print(int(rdm))
 
 
 # Tant que ma saisie utilisateur est différente de mon nombre rdm,
@@ -53,4 +53,4 @@ while float(nbuser) != float(rdm):
                         elif float(nbuser) == float(rdm):
                                 write(filetest, 'gagné ! Le nombre était bien : ' + str(nbuser))
 
-        time.sleep(2)
+        time.sleep(1)

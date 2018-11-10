@@ -10,8 +10,8 @@ import time
 
 #Initialisation
 read_file = "2atest.txt"
-high_number = 100
-low_number = 0
+high_number = 101
+low_number = -1
 guessed_number = 0
 success = False
 indice = ''
@@ -31,9 +31,7 @@ print("Résolution du jeu en cours")
 
 # résoudre le jeu
 while (success == False):
-    guessed_number = (float(high_number) + float(low_number)) / 2
-    append(read_file, str(guessed_number))
-    print(str(guessed_number))
+    print(int(guessed_number))
     print("high_number : " + str(high_number))
     print("low_number : " + str(low_number))
 
@@ -46,18 +44,23 @@ while (success == False):
         compteur += 1
         if compteur == 1:
             indice = line
-            print("line : " + line)
+            print("line : " + indice)
             
 
-    if indice == "plus":
-        low_number = float(guessed_number)
+            if "plus" in indice:
+                print("ça passe 2")
+                low_number = int(guessed_number)
 
-    elif indice == "moins": 
-        high_number = float(guessed_number)
+            elif "moins" in indice:
+                high_number = int(guessed_number)
 
-    elif indice == "gagné":
-        print('C\'est gagné, le nombre était ' + str(guessed_number))
-        success = True
+            elif "gagné" in indice:
+                print('C\'est gagné, le nombre était ' + str(guessed_number))
+                success = True
         
-    gamefile.close()
+
+    guessed_number = (int(high_number) + int(low_number)) / 2
+    append(read_file, str(guessed_number))
+
     time.sleep(2)
+    gamefile.close()

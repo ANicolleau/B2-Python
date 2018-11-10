@@ -1,1 +1,2 @@
-plus
+gagné ! Le nombre était bien : 48.0
+48.0
