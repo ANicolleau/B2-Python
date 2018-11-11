@@ -39,7 +39,7 @@ while (success == False):
     compteur = 0
 
     
-
+#Lit la première ligne et récupère plus, moins ou gagné dans la variable indice.
     for line in gamefile.readlines():
         compteur += 1
         if compteur == 1:
@@ -48,7 +48,6 @@ while (success == False):
             
 
             if "plus" in indice:
-                print("ça passe 2")
                 low_number = int(guessed_number)
 
             elif "moins" in indice:

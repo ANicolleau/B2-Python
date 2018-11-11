@@ -40,7 +40,7 @@ while str(nbuser) != str(rdm):
     elif str(nbuser) is not int :
         print("Ceci n'est pas un nombre, veuillez réessayer")
     
-    elif float(nbuser) < float(rdm):
+    elif int(nbuser) < int(rdm):
         print("C'est plus")
     
     elif int(nbuser) > int(rdm) and int(nbuser) > 0 and int(nbuser) < 100:
